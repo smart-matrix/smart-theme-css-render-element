@@ -11,13 +11,29 @@
 <body>
   <!-- <fx-rosot></fx-root> -->
 
-  <css-render id="css"></css-render>
+  <fx-css-render id="css"></fx-css-render>
 
-  <script>
+  <script>    
     setTimeout(() => {
       var css = document.getElementById("css");
 
-      css.title = "Hells Yea"
+      css.Theme = {
+        Theme: {
+          'body': {
+            'background-color': 'green'
+          }
+        }
+      };
+
+      css.theme = {
+        Theme: {
+          'body': {
+            'background-color': 'red'
+          }
+        }
+      };
+      
+      // css.Compile();
     }, 5000);
   </script>
 </body>
