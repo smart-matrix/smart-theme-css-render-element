@@ -11,8 +11,14 @@
 <body>
   <!-- <fx-rosot></fx-root> -->
 
-  <css-render></css-render>
-  
-  <script type="text/javascript" src="F:\Git\Open Source\smart-matrix\smart-theme-css-render-element\dist\css-render-element\css-render-element.js"></script>
+  <css-render id="css"></css-render>
+
+  <script>
+    setTimeout(() => {
+      var css = document.getElementById("css");
+
+      css.title = "Hells Yea"
+    }, 5000);
+  </script>
 </body>
 </html>

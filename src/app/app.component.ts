@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'fx-root',
@@ -10,7 +10,7 @@ export class AppComponent {
   @Input('title')
   public Title: string;
 
-  constructor() {
+  constructor(protected cd: ChangeDetectorRef) {
     this.Title = 'css-render-elemen2.0t';
   }
 }
