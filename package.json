@@ -1,15 +1,14 @@
 {
   "name": "@smart-matrix/css-render-element",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "npm run build:wc",
     "build:wc": "ng build css-render-element --prod --output-hashing none && npm run build:element",
     "build:element": "node node_modules/@smart-matrix/angular-build/elements/build.js css-render-element",
-    "deploy": "npm run version && npm run build && npm run deploy:wc",
+    "deploy": "npm version patch && npm run build && npm run deploy:wc",
     "deploy:wc": "npm publish ./dist/css-render-element --access public",
-    "version": "npm version patch",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
