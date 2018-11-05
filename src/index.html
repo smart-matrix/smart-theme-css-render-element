@@ -11,11 +11,13 @@
 <body>
   <!-- <fx-rosot></fx-root> -->
 
-  <fx-css-render id="css"></fx-css-render>
+  <fx-css-render id="css" title="Attribute"></fx-css-render>
 
   <script>    
-    setTimeout(() => {
       var css = document.getElementById("css");
+
+    setTimeout(() => {
+      css.Title = 'Code Set 1';
 
       css.Theme = {
         Theme: {
@@ -24,16 +26,19 @@
           }
         }
       };
+      
+      // css.Compile();
+    }, 1000);
+    setTimeout(() => {
+      css.Title = 'Code Set 2';
 
-      css.theme = {
+      css.Theme = {
         Theme: {
           'body': {
             'background-color': 'red'
           }
         }
       };
-      
-      // css.Compile();
     }, 5000);
   </script>
 </body>

@@ -28,9 +28,14 @@ export class CSSRenderComponent implements OnInit {
   @Input('theme')
   public Theme: ThemeConfiguration;
 
+  @Input('title')
+  public Title: string;
+
   //  Constructors
   constructor(protected cd: ChangeDetectorRef, protected compiler: IThemeCompiler, protected sanitizer: DomSanitizer) {
     this.Debug = true;
+
+    this.Title = 'Heylo';
   }
 
   //  Life Cycle
@@ -38,7 +43,7 @@ export class CSSRenderComponent implements OnInit {
     this.Compile();
   }
 
-  public ngChanges() {
+  public ngOnChanges() {
     this.Compile();
   }
 
