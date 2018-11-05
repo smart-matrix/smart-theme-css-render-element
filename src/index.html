@@ -7,11 +7,12 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- <script src="F:\Git\Open Source\smart-matrix\smart-theme-css-render-element\dist\css-render-element\css-render-element.js" ></script> -->
 </head>
 <body>
   <!-- <fx-rosot></fx-root> -->
 
-  <fx-css-render id="css" title="Attribute"></fx-css-render>
+  <fx-css-render id="css"></fx-css-render>
 
   <script>    
       var css = document.getElementById("css");
@@ -19,13 +20,17 @@
     setTimeout(() => {
       css.Title = 'Code Set 1';
 
-      css.Theme = {
+      css.MergeTheme({
         Theme: {
+          'html': {
+            height: '100%'
+          },
           'body': {
+            height: '100%',
             'background-color': 'green'
           }
         }
-      };
+      });
       
       // css.Compile();
     }, 1000);
@@ -34,7 +39,11 @@
 
       css.Theme = {
         Theme: {
+          'html': {
+            height: '100%'
+          },
           'body': {
+            height: '100%',
             'background-color': 'red'
           }
         }

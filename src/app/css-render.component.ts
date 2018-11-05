@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, Input, ChangeDetectorRef, OnInit, EventEm
 import { ThemeConfiguration } from '@smart-matrix/smart-schema';
 import { IThemeCompiler } from '@smart-matrix/smart-theme';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { merge } from 'lodash';
 
 @Component({
   selector: 'fx-css-render',
@@ -28,14 +29,9 @@ export class CSSRenderComponent implements OnInit {
   @Input('theme')
   public Theme: ThemeConfiguration;
 
-  @Input('title')
-  public Title: string;
-
   //  Constructors
   constructor(protected cd: ChangeDetectorRef, protected compiler: IThemeCompiler, protected sanitizer: DomSanitizer) {
     this.Debug = true;
-
-    this.Title = 'Heylo';
   }
 
   //  Life Cycle
@@ -48,7 +44,8 @@ export class CSSRenderComponent implements OnInit {
   }
 
   //  API Methods
-  public Compile() {
+  @Input()
+  public Compile = () => {
     this.CSS = this.compiler.CompileTheme(this.Theme);
 
     switch (this.Mode) {
@@ -60,6 +57,18 @@ export class CSSRenderComponent implements OnInit {
         this.CSSStyle = this.sanitizer.bypassSecurityTrustStyle(this.CSS);
         break;
     }
+
+    this.cd.detectChanges();
+  }
+
+  @Input()
+  public MergeTheme = (theme: ThemeConfiguration) => {
+    if (!this.Theme)
+      this.Theme = theme;
+    else if (theme)
+      merge(this.Theme, theme);
+
+    this.Compile();
   }
   
   //  Helpers
