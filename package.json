@@ -9,7 +9,7 @@
     "build:element": "node node_modules/@smart-matrix/angular-build/elements/build.js css-render-element",
     "deploy": "npm run version && npm run build && npm run deploy:wc",
     "deploy:wc": "npm publish ./dist/css-render-element --access public",
-    "version": "npm run version:lib",
+    "version": "npm run version:wc",
     "version:wc": "npm run version:patch",
     "version:patch": "npm version patch",
     "test": "ng test",
